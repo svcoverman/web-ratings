@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import Module from "../components/module/Index"
+
 
 class Home extends Component {
 
     render() {
         return (
-            <h3>hello</h3>
+            <Module>
+            <h3>List of Websites</h3>
+            </Module>
         );
     }
 }

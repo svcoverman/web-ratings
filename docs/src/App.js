@@ -5,14 +5,16 @@ import Login from "./pages/Login"
 import Details from "./pages/Details"
 import Container from "./components/Container/Index"
 import NoMatch from "./pages/NoMatch"
+import Nav from "./components/Nav";
 
 function App() {
   return (
     <Router>
       <div>
         <Container/>
+        <Nav />
           <Switch>
-            <Route exact path="/home" component={Home}/>
+            <Route exact path="/" component={Home}/>
             <Route exact path="/login" componet={Login}/>
             <Route exact path="/:id" component={Details}/>
             <Route component={NoMatch}/>
