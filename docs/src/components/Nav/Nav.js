@@ -6,6 +6,7 @@ function Nav() {
       <a className="navbar-brand" href="/">
         Website Rating List
       </a>
+      <a href="/login" className="nav-item text-white ml-5">Login</a>
     </nav>
   );
 }
