@@ -1,9 +1,10 @@
-.module {
+.filter {
     padding: 15px;
     height: 70%;
     align-content: flex-start;
     border: 3px solid black;
-    margin: 10px;
     background-color: wheat;
+    margin: 10px;
     font-family: 'Arvo', serif;
+
 }

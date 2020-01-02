@@ -1,0 +1,27 @@
+.navbar {
+    background-color: wheat;
+    color: black;
+    height: 15vh;
+    font-size: 8vh;
+    font-family: 'Lobster', cursive;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+.navbar:hover {
+    text-decoration: none;
+    color:black;
+}
+
+.nav-item {
+    color: black;
+    margin-left: 60vw;
+    font-size: 4vh;
+    font-family: 'Lobster', cursive;
+
+}
+
+.nav-item:hover {
+    text-decoration: none;
+    color:black;
+}
