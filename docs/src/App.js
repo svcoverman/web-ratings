@@ -6,6 +6,7 @@ import Details from "./pages/Details"
 import Container from "./components/Container/Index"
 import NoMatch from "./pages/NoMatch"
 import Nav from "./components/Nav";
+import "./App.css"
 
 function App() {
   return (
