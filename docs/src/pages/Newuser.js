@@ -3,22 +3,25 @@ import { Input, FormBtn } from "../components/Form";
 import Container from "../components/Container/Index";
 import './pages.css';
 
-class Login extends Component {
+class Newuser extends Component {
 
     render() {
         return (
             <Container>
-                <form id="loginForm">
+                <form id="userForm">
+                    <h4>Email</h4>
+                    <Input/>
                     <h4>User Name</h4>
                     <Input/>
                     <h4>Password</h4>
                     <Input/>
-                    <FormBtn>Submit</FormBtn>
+                    <h4>Retype Password</h4>
+                    <Input/>
+                    <FormBtn>Create</FormBtn>
                 </form>
-                <div id="register">Don't have an account? <a id="account" href="/newUser">Click Here</a> to create one.</div>
             </Container>
         );
     }
 }
 
-export default Login;
+export default Newuser;
