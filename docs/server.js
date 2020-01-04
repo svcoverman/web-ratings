@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist"
+  process.env.MONGODB_URI || "mongodb://localhost/websiteDB"
 );
 
 app.listen(PORT, function() {
