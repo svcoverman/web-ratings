@@ -8,6 +8,6 @@ const websiteSchema = new Schema({
   date: { type: Date, default: Date.now }
 });
 
-const website = mongoose.model("Website", websiteSchema);
+const Website = mongoose.model("Website", websiteSchema);
 
-module.exports = website;
+module.exports = Website;
