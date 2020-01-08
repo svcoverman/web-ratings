@@ -4,14 +4,13 @@ import Filter from "../components/Filter/Index"
 import Container from "../components/Container/Index";
 import { List, ListItem } from "../components/List";
 import Checkbox from "../components/Checkbox"
-// import API from "../utils/API";
+
 
 const items = [
     'Popular',
     'Highest Rating',
     'Newest'
 ];
-
 
 class Home extends Component {
     state = {
