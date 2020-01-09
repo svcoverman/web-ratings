@@ -1,4 +1,5 @@
 import React, { Component, PropTypes} from 'react';
+import "./Checkbox.css"
 
 class Checkbox extends Component {
     state = {

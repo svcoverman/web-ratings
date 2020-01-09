@@ -7,6 +7,7 @@ import Create from "./pages/Create";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Websites from "./pages/Websites";
+import Welcome from "./pages/Welcome"
 import "./App.css"
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
       <div>
         <Nav />
           <Switch>
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={Welcome}/>
+            <Route exact path="/home" component={Home}/>
             <Route exact path="/login" component={Login}/>
             <Route exact path="/newUser" component={Newuser}/>
             <Route exact path="/create" component={Create}/>
