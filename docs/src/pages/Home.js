@@ -76,7 +76,7 @@ class Home extends Component {
                 <Filter>
                     <form onSubmit={this.handleFormSubmit}>
                         {this.renderCheckboxes()}
-                        <button className="btn btn default" type="submit">Apply</button>
+                        <button className="pure-button pure-button-primary" type="submit">Apply</button>
                     </form>
                 </Filter>
                 <Module>
