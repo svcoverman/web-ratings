@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
   // Gets all websites
   getWebsites: function() {
-    return axios.get("/api/websites");
+    return axios.get("api/websites/");
   },
   // Gets the website with the given id
   getWebsite: function(id) {
@@ -15,6 +15,6 @@ export default {
   },
   // Saves a website to the database
   saveWebsite: function(websiteData) {
-    return axios.post("/api/websites", websiteData);
+    return axios.post("/api/websites/", websiteData);
   }
 };

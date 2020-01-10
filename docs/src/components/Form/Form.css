@@ -1,4 +1,6 @@
 button {
-    height: 5vh;
-    width: 5vw;
+    height: 8vh;
+    width: 10vw;
+    flex-wrap: wrap;
+
 }
