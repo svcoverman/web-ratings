@@ -3,17 +3,18 @@ import { Input, FormBtn } from "../components/Form";
 import Container from "../components/Container/Index";
 import './pages.css';
 import GoogleLogin from 'react-google-login'
-import Cookies from 'universal-cookie'
+// import Cookies from 'universal-cookie'
 
 class Login extends Component {
+
   
     onLogin = response => {
     console.log(response)
     const userObject = {
         username: response.w3.ofa,
         email: response.profileObj.email
-      }
-//      Cookies.set('user', userObject);
+      } 
+     // Cookies.set('user', userObject);
       console.log(userObject)
     }
 
@@ -21,7 +22,10 @@ class Login extends Component {
         console.warn('we broke it', res);
     }
 
+   
+
     render() {
+
         return (
             <Container>
                 <form id="loginForm">
@@ -39,7 +43,9 @@ class Login extends Component {
                      onFailure={this.onLoginFail}
                      cookiePolicy={'single_host_origin'}       
                 />,
+                <div id = "user"></div>
             </Container>
+
             
         );
     }

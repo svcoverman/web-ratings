@@ -11,6 +11,7 @@ import Welcome from "./pages/Welcome"
 import "./App.css"
 
 function App() {
+//  const onSetUserInfo = userInfo 
   return (
     <Router>
       <div>
