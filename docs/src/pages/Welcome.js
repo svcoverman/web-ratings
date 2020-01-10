@@ -16,13 +16,51 @@ class Welcome extends Component {
                             Leave your comments and ratings for the rest of the community to view!
                         </p>
                         <p>
-                        <a href="/home" className="pure-button pure-button-primary">Get Started</a>
+                        <a href="/home" className="pure-button pure-button-primary">View Websites</a>
                         </p>
                 </div>
             </div>
             <div className="content-wrapper">
                 <div className="content">
                     <h2 className="content-head is-center">Web Rates Features</h2>
+                    <div className="pure-g">
+                        <div className="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                            <h3 className="content-subhead">
+                                <i className="fa fa-rocket"></i>
+                                Easy Login
+                            </h3>
+                            <p>
+                            Create an account or login with google
+                            </p>
+                        </div>
+                        <div className="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                            <h3 className="content-subhead">
+                                <i className="fa fa-rocket"></i>
+                                Post Websites
+                            </h3>
+                            <p>
+                            Post Your own Websites for other users to visit and rate
+                            </p>
+                        </div>
+                        <div className="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                            <h3 className="content-subhead">
+                                <i className="fa fa-rocket"></i>
+                                Rate Websites
+                            </h3>
+                            <p>
+                            Leave a rating and comment on posted websites
+                            </p>
+                        </div>
+                        <div className="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                            <h3 className="content-subhead">
+                                <i className="fa fa-rocket"></i>
+                                View by Category
+                            </h3>
+                            <p>
+                            Apply filters to see the highest rated and most popular sites in different categories
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
             

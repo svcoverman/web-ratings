@@ -51,7 +51,7 @@ h4 {
     overflow: hidden;
     /* The following styles are required for the "scroll-over" effect */
     width: 100%;
-    height: 88%;
+    height: 85%;
     top: 0;
     left: 0;
     position: absolute !important;
@@ -59,13 +59,15 @@ h4 {
 
 .splash {
     /* absolute center .splash within .splash-container */
-    width: 50%;
-    height: 50%;
+    width: 55%;
+    height: 45%;
     margin: auto;
     position: absolute;
-    top: 100px; left: 0; bottom: 0; right: 0;
+    top: 10px; left: 0; bottom: 0; right: 0;
     text-align: center;
     text-transform: uppercase;
+    border: 3px solid black;
+    background-color: wheat;
 }
 
 /* This is the main heading that appears on the blue section */
@@ -73,13 +75,11 @@ h4 {
     font-size: 20px;
     font-weight: bold;
     color:black;
-    border: 3px solid black;
-    background-color: wheat;
     padding: 1em 1.6em;
     font-weight: 100;
     border-radius: 5px;
     line-height: 1em;
-    font-family: 'Lobster', cursive;
+    font-family: 'Poppins', sans-serif;
     font-size: 30px;
 }
 
@@ -88,6 +88,7 @@ h4 {
     color: black;
     letter-spacing: 0.05em;
     opacity: 0.8;
+    font-family: 'Poppins', sans-serif;
 }
 
 .pure-button {
@@ -109,16 +110,19 @@ a.pure-button-primary {
     top: 70%;
     width: 73%;
     z-index: 2;
-    height: 200px;
+    height: 300px;
     background: wheat;
     margin-bottom: 40px;
     border: 3px solid black;
     text-align: center;
+    
 }
 
 /* We want to give the content area some more padding */
 .content {
-    padding: 1em 1em 3em;
+    padding: 1em 1em 3em;    
+    font-family: 'Poppins', sans-serif;
+
 }
 
 /* This is the class used for the main content headers (<h2>) */
@@ -127,6 +131,8 @@ a.pure-button-primary {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin: 2em 0 1em;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 /* This is a modifier class used when the content-head is inside a ribbon */
@@ -136,7 +142,8 @@ a.pure-button-primary {
 
 /* This is the class used for the content sub-headers (<h3>) */
 .content-subhead {
-    color: #1f8dd6;
+    color:black;
+    font-family: 'Poppins', sans-serif;
 }
     .content-subhead i {
         margin-right: 7px;
