@@ -54,7 +54,7 @@ h4 {
     height: 88%;
     top: 0;
     left: 0;
-    position: fixed !important;
+    position: absolute !important;
 }
 
 .splash {
@@ -103,3 +103,41 @@ a.pure-button-primary {
     font-size: 120%;
 }
 
+.content-wrapper {
+    /* These styles are required for the "scroll-over" effect */
+    position: absolute;
+    top: 70%;
+    width: 73%;
+    z-index: 2;
+    height: 200px;
+    background: wheat;
+    margin-bottom: 40px;
+    border: 3px solid black;
+    text-align: center;
+}
+
+/* We want to give the content area some more padding */
+.content {
+    padding: 1em 1em 3em;
+}
+
+/* This is the class used for the main content headers (<h2>) */
+.content-head {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 2em 0 1em;
+}
+
+/* This is a modifier class used when the content-head is inside a ribbon */
+.content-head-ribbon {
+    color: white;
+}
+
+/* This is the class used for the content sub-headers (<h3>) */
+.content-subhead {
+    color: #1f8dd6;
+}
+    .content-subhead i {
+        margin-right: 7px;
+    }
