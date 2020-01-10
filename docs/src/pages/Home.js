@@ -4,6 +4,7 @@ import Filter from "../components/Filter/Index"
 import Container from "../components/Container/Index";
 import { List, ListItem } from "../components/List";
 import Checkbox from "../components/Checkbox"
+import Menu from "../components/Menu/Index"
 
 
 const items = [
@@ -39,7 +40,7 @@ class Home extends Component {
             console.log(box, 'is chosen');
         }
     }
-
+    
     createCheckbox = label => (
         <Checkbox
             label={label}
@@ -78,6 +79,9 @@ class Home extends Component {
                         {this.renderCheckboxes()}
                         <button className="pure-button pure-button-primary" type="submit">Apply</button>
                     </form>
+                </Filter>
+                <Filter>
+                    <Menu/>
                 </Filter>
                 <Module>
                     <h3>List of Websites</h3>
