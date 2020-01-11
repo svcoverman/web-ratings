@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
   // Gets all websites
   getWebsites: function() {
-    return axios.get("api/websites/");
+    return axios.get("api/websites");
   },
   // Gets the website with the given id
   getWebsite: function(id) {

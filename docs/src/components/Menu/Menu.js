@@ -7,7 +7,7 @@ function Menu() {
     <ul className="pure-menu-list">
         <li className="pure-menu-item pure-menu-selected"><button className="pure-button">Popular</button></li>
         <li className="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-            <a href="#" id="menuLink1" className="pure-menu-link">Contact</a>
+            <a href="/" id="menuLink1" className="pure-menu-link">Contact</a>
             <ul class="pure-menu-children">
                 <li className="pure-menu-item"><buttton href="/" className="pure-menu-link">Email</buttton></li>
                 <li className="pure-menu-item"><a href="/" className="pure-menu-link">Twitter</a></li>
