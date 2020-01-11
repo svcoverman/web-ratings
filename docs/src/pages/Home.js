@@ -3,9 +3,9 @@ import Module from "../components/module/Index"
 import Filter from "../components/Filter/Index"
 import Container from "../components/Container/Index";
 import { List, ListItem } from "../components/List";
+import { Link } from "react-router-dom";
 import Checkbox from "../components/Checkbox"
-import Menu from "../components/Menu/Index"
-
+import API from "../utils/API";
 
 const items = [
     'Popular',
@@ -16,10 +16,22 @@ const items = [
 class Home extends Component {
     state = {
         websites: [],
-        category: "",
-        description: "",
-        link: "",
-        image: ""
+        URL: "",
+        thumbnail: "",
+        summary: ""
+    };
+
+    componentDidMount() {
+        this.loadWebsites();
+    }
+    
+    loadWebsites = () => {
+        API.getWebsites()
+        .then(res =>
+            // console.log(res.data)
+            this.setState({ websites: res.data, URL: "", thumbnail: "", summary: "" })
+        )
+        .catch(err => console.log(err));
     };
 
     componentWillMount = () => {
@@ -53,43 +65,37 @@ class Home extends Component {
         items.map(this.createCheckbox)
     )
 
-    // componentDidMount() {
-    //     this.loadSites();
-    // };
-
-    // loadSites = () => {
-    //     API.getSites()
-    //         .then(res =>
-    //             this.setState({
-    //                 websites: res.data,
-    //                 category: "",
-    //                 description: "",
-    //                 link: "",
-    //                 image: "" 
-    //             })
-    //             )
-    //             .catch(err => console.log(err));
-    // };
-
     render() {
         return (
             <Container>
                 <Filter>
                     <form onSubmit={this.handleFormSubmit}>
                         {this.renderCheckboxes()}
-                        <button className="pure-button pure-button-primary" type="submit">Apply</button>
                     </form>
-                </Filter>
-                <Filter>
-                    <Menu/>
+                    <label className="filter-item">Category:</label>
+                    <select id="category" name="category" className="filter-item">
+                        <option value="" disabled>Categories</option>
+                        <option value="All" selected>All</option>
+                        <option value="News" >News</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Social">Social</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Travel">Travel</option>
+                    </select>
+                    <button className="pure-button pure-button-primary filter-item" type="submit">Apply</button>
+
                 </Filter>
                 <Module>
                     <h3>List of Websites</h3>
                     <List>
                         {this.state.websites.map(website => (
-                            <ListItem key={website._id}>
-                                {website.title}
-                            </ListItem>
+                        <ListItem key={website._id}>
+                            <Link to={"/websites/" + website._id}>
+                                <strong>
+                                    {website.URL}
+                                </strong>
+                            </Link>
+                        </ListItem>
                         ))}
                     </List>
                 </Module>

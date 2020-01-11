@@ -23,6 +23,7 @@ class Websites extends Component {
   loadWebsites = () => {
     API.getWebsites()
       .then(res =>
+        // console.log(res.data)
         this.setState({ websites: res.data, URL: "", thumbnail: "", summary: "" })
       )
       .catch(err => console.log(err));

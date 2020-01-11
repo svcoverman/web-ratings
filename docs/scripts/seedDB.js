@@ -10,18 +10,44 @@ mongoose.connect(
 
 const websiteSeed = [
 	{
-	  URL: "https://www.google.com/",
-	  thumbnail: "",
-	  summary:
+		title: "Google",
+		URL: "https://www.google.com/",
+		thumbnail: "",
+	  	summary:
 		"Search for information about (someone or something) on the Internet using the search engine Google",
-	  date: new Date(Date.now())
+		category: "Search",
+		date: new Date(Date.now()),
+		rating: 4.7,
+		comments: [
+			{
+				user: "Kevin",
+				comment: "best search engine out there"
+			},
+			{
+				user: "Jeff",
+				comment: "works alright, but I prefer bing"
+			}
+		]
 	},
 	{
+		title: "NFL",
 		URL: "https://www.nfl.com/",
 		thumbnail: "",
 		summary:
 		  "The National Football League (NFL) is a professional American football league consisting of 32 teams, divided equally between the National Football Conference (NFC) and the American Football Conference (AFC)",
-		date: new Date(Date.now())
+		category: "Sports",
+		date: new Date(Date.now()),
+		rating: 4.2,
+		comments: [
+			{
+				user: "Bob",
+				comment: "my favorite Sports website!"
+			},
+			{
+				user: "Joe",
+				comment: "Wish they would update more but other then that its alright"
+			}
+		]
 	}
 ];
 

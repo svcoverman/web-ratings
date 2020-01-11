@@ -21,12 +21,31 @@ h4 {
 }
 
 #createForm {
-    margin: 30px 0px 5px 350px;
+    margin: 30px 0px 5px 200px;
     background-color: wheat;
     padding: 15px;
     border: 3px solid black;
     height: 755px;
     width: 400px;
+}
+
+#categoryCreate {
+    margin: 5px;
+    width: 355px;
+    height: 35px;
+}
+
+#siteView {
+    margin: 30px 0px 5px 300px;
+    background-color: wheat;
+    padding: 15px;
+    border: 3px solid black;
+    height: 755px;
+    width: 600px;
+}
+
+.userSites {
+    margin: 0px 0px 5px 100px;
 }
 
 #register {
@@ -43,6 +62,10 @@ h4 {
     color: black;
     text-decoration: none;
     font-size: 30px;
+}
+
+.filter-item {
+    margin: 10px 20px 10px 20px;
 }
 
 .splash-container {
