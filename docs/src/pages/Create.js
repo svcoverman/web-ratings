@@ -7,6 +7,7 @@ class Create extends Component {
 
     state = {
         websites: [],
+        title: "",
         URL: "",
         thumbnail: "",
         summary: ""
@@ -40,7 +41,7 @@ class Create extends Component {
                     <form id="createForm">
                         <h4>Website Name</h4>
                         <Input
-                            value={this.state.URL}
+                            value={this.state.title}
                             onChange={this.handleInputChange}
                             name="URL"
                             placeholder="URL (required)"

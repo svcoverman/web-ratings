@@ -90,6 +90,7 @@ class Home extends Component {
                     <List>
                         {this.state.websites.map(website => (
                         <ListItem key={website._id}>
+                            <h3>{website.title}</h3>
                             <Link to={"/websites/" + website._id}>
                                 <strong>
                                     {website.URL}

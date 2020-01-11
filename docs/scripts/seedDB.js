@@ -13,7 +13,7 @@ const websiteSeed = [
 		title: "Google",
 		URL: "https://www.google.com/",
 		thumbnail: "",
-	  	summary:
+		summary:
 		"Search for information about (someone or something) on the Internet using the search engine Google",
 		category: "Search",
 		date: new Date(Date.now()),
@@ -21,11 +21,13 @@ const websiteSeed = [
 		comments: [
 			{
 				user: "Kevin",
-				comment: "best search engine out there"
+				comment: "best search engine out there",
+				dateCreated: "1/11/2020"
 			},
 			{
 				user: "Jeff",
-				comment: "works alright, but I prefer bing"
+				comment: "works alright, but I prefer bing",
+				dateCreated: "1/11/2020"
 			}
 		]
 	},
@@ -41,11 +43,13 @@ const websiteSeed = [
 		comments: [
 			{
 				user: "Bob",
-				comment: "my favorite Sports website!"
+				comment: "my favorite Sports website!",
+				dateCreated: "1/11/2020"
 			},
 			{
 				user: "Joe",
-				comment: "Wish they would update more but other then that its alright"
+				comment: "Wish they would update more but other then that its alright",
+				dateCreated: "1/11/2020"
 			}
 		]
 	}
