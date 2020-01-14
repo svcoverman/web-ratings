@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Module from "../components/module/Index"
 import Filter from "../components/Filter/Index"
 import Container from "../components/Container/Index";
-import { List, ListItem } from "../components/List";
 import { Link } from "react-router-dom";
 import Checkbox from "../components/Checkbox"
 import API from "../utils/API";
@@ -75,30 +74,41 @@ class Home extends Component {
                     <label className="filter-item">Category:</label>
                     <select id="category" name="category" className="filter-item">
                         <option value="" disabled>Categories</option>
-                        <option value="All" selected>All</option>
+                        <option defaultValue="All" >All</option>
                         <option value="News" >News</option>
                         <option value="Sports">Sports</option>
                         <option value="Social">Social</option>
                         <option value="Shopping">Shopping</option>
                         <option value="Travel">Travel</option>
+                        <option value="Search">Travel</option>
                     </select>
                     <button className="pure-button pure-button-primary filter-item" type="submit">Apply</button>
 
                 </Filter>
                 <Module>
                     <h3>List of Websites</h3>
-                    <List>
-                        {this.state.websites.map(website => (
-                        <ListItem key={website._id}>
-                            <h3>{website.title}</h3>
-                            <Link to={"/websites/" + website._id}>
-                                <strong>
-                                    {website.URL}
-                                </strong>
-                            </Link>
-                        </ListItem>
-                        ))}
-                    </List>
+                    <table className="pure-table pure-table-horizontal">
+                        <thead>
+                            <tr>
+                                <th>website Name</th>
+                                <th>Websites Details</th>
+                                <th>Website Rating</th>
+                                <th>Website Category</th>
+                                <th>Website Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.websites.map(website => (
+                                <tr>
+                                <td>{website.title}</td>
+                                <td><Link to={"/websites/" + website._id}>click here</Link></td>
+                                <td>{website.rating}</td>
+                                <td>{website.category}</td>
+                                <td><a href={website.URL} target="blank">{website.URL}</a></td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </Module>
             </Container>
         );

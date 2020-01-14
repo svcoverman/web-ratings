@@ -1,117 +1,78 @@
 import React, { Component } from "react";
-import DeleteBtn from "../components/DeleteBtn";
-import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn} from "../components/Form";
+import {  Container } from "../components/Grid";
 
 
 class Websites extends Component {
+
   state = {
-    websites: [],
-    URL: "",
-    thumbnail: "",
-    summary: ""
+    website: "",
+    // title: "",
+    // URL: "",
+    // thumbnail: "",
+    // summary: "", 
+    // category: "",
+    // rating: "", 
+    comments: []
   };
 
+  // findId() {
+  // const URLid = window.location.href.split("/").pop()
+  // console.log(URLid)
+  // }
+ 
   componentDidMount() {
-    this.loadWebsites();
+    // this.findId();
+    this.loadWebsite()
   }
 
-  loadWebsites = () => {
-    API.getWebsites()
+  loadWebsite = () => {
+    const id = window.location.href.split("/").pop()
+    console.log(id)
+    API.getWebsite(id)
       .then(res =>
         // console.log(res.data)
-        this.setState({ websites: res.data, URL: "", thumbnail: "", summary: "" })
+        this.setState({ 
+          website: res.data,
+      //     URL: res.data.URL, 
+      //     thumbnail: res.data.thumbnail, 
+      //     summary: res.data.summary,
+      //     category: res.data.category,
+      //     rating: res.data.rating,
+      //     comments: res.data.comments
+          comments: res.data.comments
+        })
       )
       .catch(err => console.log(err));
-  };
-
-  deleteWebsite = id => {
-    API.deleteWebsite(id)
-      .then(res => this.loadWebsites())
-      .catch(err => console.log(err));
-  };
-
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-    if (this.state.URL && this.state.thumbnail) {
-      API.saveWebsite({
-        URL: this.state.URL,
-        thumbnail: this.state.thumbnail,
-        summary: this.state.summary
-      })
-        .then(res => this.loadWebsites())
-        .catch(err => console.log(err));
-    }
+      console.log(this.state.website)
   };
 
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-6">
-          <Jumbotron>
-              <h1>What Websites Would You like to Rate?</h1>
-            </Jumbotron>
-            <form>
-              <Input
-                value={this.state.URL}
-                onChange={this.handleInputChange}
-                name="URL"
-                placeholder="URL (required)"
-              />
-              <Input
-                value={this.state.thumbnail}
-                onChange={this.handleInputChange}
-                name="thumbnail"
-                placeholder="Thumbnail (required)"
-              />
-              <TextArea
-                value={this.state.summary}
-                onChange={this.handleInputChange}
-                name="summary"
-                placeholder="Summary (Optional)"
-              />
-              <FormBtn
-                disabled={!(this.state.thumbnail && this.state.URL)}
-                onClick={this.handleFormSubmit}
-              >
-                Submit Website
-              </FormBtn>
-            </form>
-          </Col>
-          <Col size="md-6 sm-12">
-          <Jumbotron>
-              <h1>Websites On My List</h1>
-            </Jumbotron>
-			  {this.state.websites.length ? (
-              <List>
-                {this.state.websites.map(website => (
-                  <ListItem key={website._id}>
-                    <Link to={"/websites/" + website._id}>
-                      <strong>
-                        {website.URL} by {website.thumbnail}
-                      </strong>
-                    </Link>
-                    <DeleteBtn onClick={() => this.deleteWebsite(website._id)} />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
-        </Row>
+      <Container>
+        <div className="l-box pure-u-1 pure-u-md-1-1 pure-u-lg-1-1">
+          <h1 id="webTitle">{this.state.website.title}</h1>
+          <h3 className="webInfo-title"><a href={this.state.website.URL} target="blank">{this.state.website.URL}</a></h3>
+        </div>
+        <div className="webInfo l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
+          <h2 className="webInfo-title">Website Description</h2>
+          <h3><strong>Category: </strong>{this.state.website.category}</h3>
+          <h3>{this.state.website.summary}</h3>
+        </div>
+        <div className="webInfo l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+          <img src={this.state.website.URL} alt="website"></img>
+        </div>
+        <div className=" webInfo l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
+          <h2 className="webInfo-title">User Comments</h2>
+          <h2><strong>Rating: </strong>{this.state.website.rating}/5</h2>
+          {this.state.comments.map(comment => (
+            <div class="comments">
+            <h3>{comment.comment}</h3>
+            <h3>-posted by {comment.user}</h3>
+            </div>
+          ))}
+        </div>
       </Container>
 	);
 }
