@@ -5,13 +5,13 @@ import Cookies from "universal-cookie"
 function Nav() {
  // const userInfo = Cookies.get('user');
   return (
-    <nav className="navbar navbar-expand-lg">
-      <a className="navbar text-black" href="/">
-        Web Rates
-      </a>
-         
-      <a href="/login" className="nav-item">Login</a>
-    </nav>
+    <div className="pure-menu pure-menu-horizontal navbar">
+      <a href="/" className="pure-menu-heading pure-menu-link nav-item">Web Rates</a>
+      <ul className="pure-menu-list">
+        <li className="pure-menu-item"><a href="/home" className="pure-menu-link nav-item">Home</a></li>
+        <li className="pure-menu-item"><a href="/login" className="pure-menu-link nav-item">Login</a></li>
+      </ul>
+    </div>
   );
 }
 

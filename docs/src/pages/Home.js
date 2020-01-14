@@ -86,7 +86,7 @@ class Home extends Component {
 
                 </Filter>
                 <Module>
-                    <h3>List of Websites</h3>
+                    <h3 className="webInfo-title">List of Websites</h3>
                     <table className="pure-table pure-table-horizontal">
                         <thead>
                             <tr>
