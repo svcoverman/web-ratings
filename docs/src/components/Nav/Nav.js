@@ -9,8 +9,8 @@ function Nav() {
       <a className="navbar text-black" href="/">
         Web Rates
       </a>
-         
-      <a href="/login" className="nav-item">Login</a>
+      <a href="/home" className="nav-home">Home</a>
+      <a href="/login" className="nav-login">Login</a>
     </nav>
   );
 }

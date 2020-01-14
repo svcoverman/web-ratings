@@ -12,7 +12,7 @@ const websiteSeed = [
 	{
 		title: "Google",
 		URL: "https://www.google.com/",
-		thumbnail: "",
+		thumbnail: "https://media1.fdncms.com/memphisflyer/imager/u/original/21375123/21751306_10155724905022838_7192191338970086519_n.png",
 		summary:
 		"Search for information about (someone or something) on the Internet using the search engine Google",
 		category: "Search",
@@ -34,7 +34,7 @@ const websiteSeed = [
 	{
 		title: "NFL",
 		URL: "https://www.nfl.com/",
-		thumbnail: "",
+		thumbnail: "https://ca-times.brightspotcdn.com/dims4/default/84f8546/2147483647/strip/true/crop/1365x1024+0+0/resize/840x630!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Ff2%2F81%2Ff460e5ce620ae3ec5c1be2d544ed%2Fla-sp-sn-grubman-la-20140826-001",
 		summary:
 		  "The National Football League (NFL) is a professional American football league consisting of 32 teams, divided equally between the National Football Conference (NFC) and the American Football Conference (AFC)",
 		category: "Sports",

@@ -163,6 +163,11 @@ a.pure-button-primary {
         margin-right: 7px;
     }
 
+table {
+    margin-left:auto; 
+    margin-right:auto;
+}
+
     /* CSS for Website page */
 
 #webTitle {
@@ -194,4 +199,9 @@ a.pure-button-primary {
 
 a {
     color: black
+}
+
+.webImage {
+    width: 250px;
+    height: auto
 }

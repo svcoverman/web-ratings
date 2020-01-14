@@ -13,15 +13,26 @@
     color:black;
 }
 
-.nav-item {
+.nav-home {
     color: black;
-    margin-left: 75vw;
+    margin-left: 65vw;
     font-size: 4vh;
     font-family: 'Lobster', cursive;
-
 }
 
-.nav-item:hover {
+.nav-login {
+    color: black;
+    margin-left: 35px;
+    font-size: 4vh;
+    font-family: 'Lobster', cursive;
+}
+
+.nav-home:hover {
+    text-decoration: none;
+    color:black;
+}
+
+.nav-login:hover {
     text-decoration: none;
     color:black;
 }

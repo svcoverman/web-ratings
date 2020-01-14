@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
 import {  Container } from "../components/Grid";
 
 
@@ -8,22 +7,10 @@ class Websites extends Component {
 
   state = {
     website: "",
-    // title: "",
-    // URL: "",
-    // thumbnail: "",
-    // summary: "", 
-    // category: "",
-    // rating: "", 
     comments: []
   };
 
-  // findId() {
-  // const URLid = window.location.href.split("/").pop()
-  // console.log(URLid)
-  // }
- 
   componentDidMount() {
-    // this.findId();
     this.loadWebsite()
   }
 
@@ -32,15 +19,8 @@ class Websites extends Component {
     console.log(id)
     API.getWebsite(id)
       .then(res =>
-        // console.log(res.data)
         this.setState({ 
           website: res.data,
-      //     URL: res.data.URL, 
-      //     thumbnail: res.data.thumbnail, 
-      //     summary: res.data.summary,
-      //     category: res.data.category,
-      //     rating: res.data.rating,
-      //     comments: res.data.comments
           comments: res.data.comments
         })
       )
@@ -61,13 +41,13 @@ class Websites extends Component {
           <h3>{this.state.website.summary}</h3>
         </div>
         <div className="webInfo l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-          <img src={this.state.website.URL} alt="website"></img>
+          <img src={this.state.website.thumbnail} alt="website" className="webImage"></img>
         </div>
         <div className=" webInfo l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
           <h2 className="webInfo-title">User Comments</h2>
           <h2><strong>Rating: </strong>{this.state.website.rating}/5</h2>
           {this.state.comments.map(comment => (
-            <div class="comments">
+            <div className="comments">
             <h3>{comment.comment}</h3>
             <h3>-posted by {comment.user}</h3>
             </div>
