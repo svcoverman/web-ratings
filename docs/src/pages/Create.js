@@ -10,6 +10,7 @@ class Create extends Component {
         title: "",
         URL: "",
         thumbnail: "",
+        category: "",
         summary: ""
     };
 
@@ -43,8 +44,8 @@ class Create extends Component {
                         <Input
                             value={this.state.title}
                             onChange={this.handleInputChange}
-                            name="URL"
-                            placeholder="URL (required)"
+                            name="title"
+                            placeholder="Title (required)"
                         />
                         <h4>Website Link</h4>
                         <Input
@@ -61,13 +62,18 @@ class Create extends Component {
                             placeholder="Thumbnail (required)"
                         />
                         <h4>Website Category</h4>
-                        <select id="category" name="category" id="categoryCreate">
+                        <select
+                            id="categoryCreate" 
+                            name="category"
+                            value={this.state.category}
+                            onChange={this.handleInputChange}>
                             <option value="" disabled>Categories</option>
                             <option value="News" >News</option>
                             <option value="Sports">Sports</option>
                             <option value="Social">Social</option>
                             <option value="Shopping">Shopping</option>
                             <option value="Travel">Travel</option>
+                            <option value="Search">Travel</option>
                         </select>
                         <h4>Website Description</h4>
                         <TextArea
@@ -77,7 +83,7 @@ class Create extends Component {
                             placeholder="Summary (Optional)"
                         />
                         <FormBtn
-                            disabled={!(this.state.thumbnail && this.state.URL)}
+                            // disabled={!(this.state.thumbnail && this.state.URL)}
                             onClick={this.handleFormSubmit}
                         >
                             Create
