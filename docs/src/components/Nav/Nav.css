@@ -1,8 +1,7 @@
 .navbar {
     background-color: wheat;
     color: black;
-    height: 15vh;
-    font-size: 8vh;
+    font-size: 50px;
     font-family: 'Lobster', cursive;
     border-top: 3px solid black;
     border-bottom: 3px solid black;
@@ -15,14 +14,14 @@
 
 .nav-home {
     color: black;
-    margin-left: 65vw;
+    /* margin-left: 65vw; */
     font-size: 4vh;
     font-family: 'Lobster', cursive;
 }
 
-.nav-login {
+.nav-item {
     color: black;
-    margin-left: 35px;
+    /* margin-left: 35px; */
     font-size: 4vh;
     font-family: 'Lobster', cursive;
 }
@@ -32,7 +31,8 @@
     color:black;
 }
 
-.nav-login:hover {
+.nav-item:hover {
     text-decoration: none;
     color:black;
+    background-color: wheat;
 }

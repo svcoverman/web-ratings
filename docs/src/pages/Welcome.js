@@ -9,7 +9,7 @@ class Welcome extends Component {
         return (
             <Container>
             <div className="splash-container">
-                <div className="splash">
+                <div className="splash l-box pure-u-1 pure-u-md-1-1 pure-u-lg-1-1">
                     <h1 className="splash-head">Welcome to Web Rates</h1>
                         <p className="splash-subhead">
                             Web Rates allows you to post and view websites from all over the web! 
