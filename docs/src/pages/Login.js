@@ -46,14 +46,19 @@ class Login extends Component {
 
         return (
             <Container>
-                <form id="loginForm" onSubmit ={this.handleSubmit}>
-                    <h4>User Name</h4>
-                    <Input type ='text' value ={this.state.name} onChange={this.handleChange}></Input>
-                    <h4>Password</h4>
-                    <Input type = 'text' value ={this.state.password} onChange ={this.handlePassword}></Input>
-                    <FormBtn>Submit</FormBtn>
-                </form>
-                <div id="register">Don't have an account? <a id="account" href="/newUser">Click Here</a> to create one.</div>              
+                <div className="pure-g center">
+                    <form id="loginForm" className="l-box pure-u-1 pure-u-md-1-1 pure-u-lg-1-1" onSubmit ={this.handleSubmit}>
+                        <h4>User Name</h4>
+                        <Input type ='text' value ={this.state.name} onChange={this.handleChange}></Input>
+                        <h4>Password</h4>
+                        <Input type = 'text' value ={this.state.password} onChange ={this.handlePassword}></Input>
+                        <FormBtn>Submit</FormBtn>
+                    </form>
+                <div className="pure-g center">
+                    <div className="l-box pure-u-1 pure-u-md-1-1 pure-u-lg-1-1" id="register">
+                        <a id="account" href="/newUser">Click Here</a> to create account.</div>              
+                    </div>
+                </div>
             </Container>   
             
         );

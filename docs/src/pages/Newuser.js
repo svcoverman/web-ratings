@@ -60,17 +60,19 @@ class Newuser extends Component {
     render() {
         return (
             <Container>
-                <form id="userForm" onSubmit = {this.handleSubmit}>
-                    <h4>Email</h4>
-                    <Input type = 'text' value ={this.state.email} onChange ={this.handleEmail}/>
-                    <h4>User Name</h4>
-                    <Input type = 'text' value = {this.state.username} onChange = {this.handleUsername}/>
-                    <h4>Password</h4>
-                    <Input type = 'text' value = {this.state.password} onChange = {this.handlePassword}/>
-                    <h4>Retype Password</h4>
-                    <Input type = 'text' value = {this.state.rePassword} onChange = {this.handleRePassword}/>
-                    <FormBtn>Create</FormBtn>
-                </form>
+                <div className="pure-g center">
+                    <form id="userForm" onSubmit = {this.handleSubmit}>
+                        <h4>Email</h4>
+                        <Input type = 'text' value ={this.state.email} onChange ={this.handleEmail}/>
+                        <h4>User Name</h4>
+                        <Input type = 'text' value = {this.state.username} onChange = {this.handleUsername}/>
+                        <h4>Password</h4>
+                        <Input type = 'text' value = {this.state.password} onChange = {this.handlePassword}/>
+                        <h4>Retype Password</h4>
+                        <Input type = 'text' value = {this.state.rePassword} onChange = {this.handleRePassword}/>
+                        <FormBtn>Create</FormBtn>
+                    </form>
+                </div>
             </Container>
         );
     }

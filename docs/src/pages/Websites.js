@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import {  Container } from "../components/Grid";
 import { FormBtn, TextArea } from "../components/Form";
-
+import Container from "../components/Container/Index";
 
 
 class Websites extends Component {
@@ -16,6 +15,7 @@ class Websites extends Component {
     this.loadWebsite()
   }
 
+  //uses website ID in url to retrieve data for website
   loadWebsite = () => {
     const id = window.location.href.split("/").pop()
     console.log(id)
@@ -33,7 +33,6 @@ class Websites extends Component {
   render() {
     return (
       <Container>
-        
         <div className="l-box pure-u-1 pure-u-md-1-1 pure-u-lg-1-1">
           <h1 id="webTitle">{this.state.website.title}</h1>
           <h3 className="webInfo-title"><a href={this.state.website.URL} target="blank">{this.state.website.URL}</a></h3>

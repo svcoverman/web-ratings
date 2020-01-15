@@ -6,13 +6,12 @@ import { Link } from "react-router-dom";
 import Checkbox from "../components/Checkbox"
 import API from "../utils/API";
 
+// array of filter names//
 const items = [
     'Popular',
     'Highest Rating',
     'Newest'
 ];
-
-let filterArray = []
 
 class Home extends Component {
     state = {
@@ -25,6 +24,25 @@ class Home extends Component {
         this.loadWebsites();
     }
     
+    componentWillMount = () => {
+        this.selectedBoxes = new Set();
+    }
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        })
+    };
+
+    handleFormSubmit = formSubmitEvent => {
+        formSubmitEvent.preventDefault();
+        for (const box of this.selectedBoxes) {
+            console.log(box, 'is chosen');
+        }
+    }
+
+    //retrieve website data from API
     loadWebsites = () => {
         API.getWebsites()
         .then(res =>
@@ -33,10 +51,7 @@ class Home extends Component {
         .catch(err => console.log(err));
     };
 
-    componentWillMount = () => {
-        this.selectedBoxes = new Set();
-    }
-
+    //for checking and unchecking boxes 
     toggleBox = label => {
         if (this.selectedBoxes.has(label)) {
             this.selectedBoxes.delete(label);
@@ -46,14 +61,8 @@ class Home extends Component {
             console.log(this.state.checkbox)
         }
     }
-
-    handleFormSubmit = formSubmitEvent => {
-        formSubmitEvent.preventDefault();
-        for (const box of this.selectedBoxes) {
-            console.log(box, 'is chosen');
-        }
-    }
     
+    // uses list array to create checkboxes
     createCheckbox = label => (
         <Checkbox
             label={label}
@@ -66,15 +75,8 @@ class Home extends Component {
     renderCheckboxes = () => (
         items.map(this.createCheckbox)
     )
-
-    handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({
-          [name]: value
-        })
-      };
-
     
+    //functionality for applying filters
     applyFilters = () => {
         let filterArray = []
         let hasCategory = false
@@ -154,49 +156,7 @@ class Home extends Component {
             
         }
     }
-    applyCheckbox = () => {
-        console.log(this.state.checkbox)
-        let filterArray = []
-        if (this.state.checkbox === "Highest Rating") {
-            filterArray = this.state.websites.sort((a,b) => (b.rating - a.rating))
-            console.log(filterArray)
-            
-        }
-        else if (this.state.checkbox === "Popular") {
-            filterArray = this.state.websites.sort((a,b) => (b.visits - a.visits))
-            console.log(filterArray)
-            
-        }
-        else if (this.state.checkbox === "Newest") {
-            filterArray = this.state.websites.sort((a,b) => (b.date > a.date))
-            console.log(filterArray)
-            
-        }
-        else if (this.state.checkbox === "") {
-            filterArray = this.state.websites.filter(website => website.category === this.state.category)
-        } 
-            console.log(filterArray)
-            this.setState({ websites: filterArray})
-    }
-
-    applyCategory = event => {
-        const { name, value } = event.target;
-        this.setState({[name]: value})
-        let sortedArray = []
-        console.log(this.state.category)
-        if (this.state.category === "All") {
-            this.loadWebsites()
-        }
-        else if (this.state.category === "") {
-            this.loadWebsites()
-        }
-        else {
-            sortedArray = this.state.websites.filter(website => website.category === this.state.category)
-        }
-        console.log(sortedArray)
-        this.setState({ websites: sortedArray})
-    }
-
+    
     removeFilter = () => {
         window.location.reload();
     }
@@ -229,7 +189,7 @@ class Home extends Component {
                     <table className="pure-table pure-table-horizontal">
                         <thead>
                             <tr>
-                                <th>website Name</th>
+                                <th>Website  Names</th>
                                 <th>Websites Details</th>
                                 <th>Website Rating</th>
                                 <th>Average Daily Visits</th>
