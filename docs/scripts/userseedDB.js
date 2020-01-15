@@ -6,8 +6,6 @@ mongoose.connect(
 	"mongodb://localhost/websiteDB"
   );
 
-// we can start to import users
-
 const userSeed = [
     {
         username : "USER1",
