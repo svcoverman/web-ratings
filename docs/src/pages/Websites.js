@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import {  Container } from "../components/Grid";
+import { FormBtn, TextArea } from "../components/Form";
+
 
 
 class Websites extends Component {
@@ -31,17 +33,18 @@ class Websites extends Component {
   render() {
     return (
       <Container>
+        
         <div className="l-box pure-u-1 pure-u-md-1-1 pure-u-lg-1-1">
           <h1 id="webTitle">{this.state.website.title}</h1>
           <h3 className="webInfo-title"><a href={this.state.website.URL} target="blank">{this.state.website.URL}</a></h3>
+        </div>
+        <div className="webInfo l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+          <img src={this.state.website.thumbnail} alt="website" className="webImage"></img>
         </div>
         <div className="webInfo l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
           <h2 className="webInfo-title">Website Description</h2>
           <h3><strong>Category: </strong>{this.state.website.category}</h3>
           <h3>{this.state.website.summary}</h3>
-        </div>
-        <div className="webInfo l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-          <img src={this.state.website.thumbnail} alt="website" className="webImage"></img>
         </div>
         <div className=" webInfo l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
           <h2 className="webInfo-title">User Comments</h2>
@@ -52,6 +55,18 @@ class Websites extends Component {
             <h3>-posted by {comment.user}</h3>
             </div>
           ))}
+        </div>
+        <div className="webInfo l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-2">
+          <h2 className="webInfo-title">Leave a Comment</h2>
+            <TextArea
+              value=""
+              onChange=""
+              name="comment"
+            />
+            <FormBtn
+              onClick={this.handleFormSubmit}
+            >Comment
+            </FormBtn>
         </div>
       </Container>
 	);

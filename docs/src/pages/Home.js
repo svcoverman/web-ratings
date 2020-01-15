@@ -17,7 +17,7 @@ class Home extends Component {
         websites: [],
         URL: "",
         thumbnail: "",
-        summary: ""
+        category: ""
     };
 
     componentDidMount() {
@@ -27,7 +27,6 @@ class Home extends Component {
     loadWebsites = () => {
         API.getWebsites()
         .then(res =>
-            // console.log(res.data)
             this.setState({ websites: res.data, URL: "", thumbnail: "", summary: "" })
         )
         .catch(err => console.log(err));
@@ -64,6 +63,20 @@ class Home extends Component {
         items.map(this.createCheckbox)
     )
 
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+          [name]: value
+        })
+      };
+
+    applyFilter = () => {
+        console.log(this.state.category)
+        let filterArray = this.state.websites.filter(website => website.category === this.state.category) 
+        console.log(filterArray)
+        this.setState({ websites: filterArray})
+    }
+
     render() {
         return (
             <Container>
@@ -72,7 +85,8 @@ class Home extends Component {
                         {this.renderCheckboxes()}
                     </form>
                     <label className="filter-item">Category:</label>
-                    <select id="category" name="category" className="filter-item">
+                    <select id="category" name="category" className="filter-item"
+                    onChange={this.handleInputChange}>
                         <option value="" disabled>Categories</option>
                         <option defaultValue="All" >All</option>
                         <option value="News" >News</option>
@@ -80,9 +94,9 @@ class Home extends Component {
                         <option value="Social">Social</option>
                         <option value="Shopping">Shopping</option>
                         <option value="Travel">Travel</option>
-                        <option value="Search">Travel</option>
+                        <option value="Search">Search</option>
                     </select>
-                    <button className="pure-button pure-button-primary filter-item" type="submit">Apply</button>
+                    <button className="pure-button pure-button-primary filter-item" onClick={this.applyFilter} type="submit">Apply</button>
 
                 </Filter>
                 <Module>
