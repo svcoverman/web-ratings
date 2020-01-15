@@ -72,9 +72,18 @@ class Home extends Component {
 
     applyFilter = () => {
         console.log(this.state.category)
-        let filterArray = this.state.websites.filter(website => website.category === this.state.category) 
+        let filterArray = []
+        if (this.state.category === "All") {
+            this.loadWebsites()
+        }
+        else {
+            filterArray = this.state.websites.filter(website => website.category === this.state.category)} 
         console.log(filterArray)
         this.setState({ websites: filterArray})
+    }
+
+    removeFilter = () => {
+        this.loadWebsites()
     }
 
     render() {
@@ -97,6 +106,7 @@ class Home extends Component {
                         <option value="Search">Search</option>
                     </select>
                     <button className="pure-button pure-button-primary filter-item" onClick={this.applyFilter} type="submit">Apply</button>
+                    <button className="pure-button pure-button-primary filter-item" onClick={this.removeFilter}>Reset Filters</button>
 
                 </Filter>
                 <Module>
