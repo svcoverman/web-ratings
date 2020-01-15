@@ -49,9 +49,9 @@ class Websites extends Component {
           <h2 className="webInfo-title">User Comments</h2>
           <h2><strong>Rating: </strong>{this.state.website.rating}/5</h2>
           {this.state.comments.map(comment => (
-            <div className="comments">
-            <h3>{comment.comment}</h3>
-            <h3>-posted by {comment.user}</h3>
+            <div key={comment.user} className="comments">
+              <h3 >{comment.comment}</h3>
+              <h3>-posted by {comment.user}</h3>
             </div>
           ))}
         </div>

@@ -16,6 +16,7 @@ const items = [
 class Home extends Component {
     state = {
         websites: [],
+        filteredSites: [],
         Checkbox: "",
         category: ""
     };
@@ -46,9 +47,10 @@ class Home extends Component {
     loadWebsites = () => {
         API.getWebsites()
         .then(res =>
-            this.setState({ websites: res.data })
+            this.setState({ websites: res.data, filteredSites: res.data })
         )
         .catch(err => console.log(err));
+        
     };
 
     //for checking and unchecking boxes 
@@ -120,21 +122,21 @@ class Home extends Component {
         if (hasCategory === true && hasCheck === false) {
             console.log(filterArray)
             let categoryArray = this.state.websites.filter(website => website.category === filterArray[0])
-            this.setState({ websites: categoryArray})
+            this.setState({ filteredSites: categoryArray})
         }
         if (hasCategory === false && hasCheck === true) {
             let sortedArray = []
             if (filterArray[0] === "Highest Rating") {
                 sortedArray = this.state.websites.sort((a,b) => (b.rating - a.rating))
-                this.setState({ websites: sortedArray})
+                this.setState({ filteredSites: sortedArray})
             }
             else if (filterArray[0] === "Popular") {
                 sortedArray = this.state.websites.sort((a,b) => (b.visits - a.visits))
-                this.setState({ websites: sortedArray})
+                this.setState({ filteredSites: sortedArray})
             }
             else if (filterArray[0] === "Newest") {
                 sortedArray = this.state.websites.sort((a,b) => (b.date > a.date))
-                this.setState({ websites: sortedArray})
+                this.setState({ filteredSites: sortedArray})
             }
         }
         if (hasCategory === true && hasCheck === true) {
@@ -143,15 +145,15 @@ class Home extends Component {
             let categoryArray = this.state.websites.filter(website => website.category === filterArray[0])
             if (filterArray[1] === "Highest Rating") {
                 sortedArray = categoryArray.sort((a,b) => (b.rating - a.rating))
-                this.setState({ websites: sortedArray})
+                this.setState({ filteredSites: sortedArray})
             }
             else if (filterArray[1] === "Popular") {
                 sortedArray = categoryArray.sort((a,b) => (b.visits - a.visits))
-                this.setState({ websites: sortedArray})
+                this.setState({ filteredSites: sortedArray})
             }
             else if (filterArray[1] === "Newest") {
                 sortedArray = categoryArray.sort((a,b) => (b.date > a.date))
-                this.setState({ websites: sortedArray})
+                this.setState({ filteredSites: sortedArray})
             }
             
         }
@@ -198,7 +200,7 @@ class Home extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.state.websites.map(website => (
+                            {this.state.filteredSites.map(website => (
                                 <tr key={website._id}>
                                 <td>{website.title}</td>
                                 <td><Link to={"/websites/" + website._id}>click here</Link></td>
