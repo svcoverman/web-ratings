@@ -15,8 +15,7 @@ const items = [
 class Home extends Component {
     state = {
         websites: [],
-        URL: "",
-        thumbnail: "",
+        Checkbox: "",
         category: ""
     };
 
@@ -27,7 +26,7 @@ class Home extends Component {
     loadWebsites = () => {
         API.getWebsites()
         .then(res =>
-            this.setState({ websites: res.data, URL: "", thumbnail: "", summary: "" })
+            this.setState({ websites: res.data })
         )
         .catch(err => console.log(err));
     };
@@ -37,10 +36,13 @@ class Home extends Component {
     }
 
     toggleBox = label => {
+
         if (this.selectedBoxes.has(label)) {
             this.selectedBoxes.delete(label);
         } else {
             this.selectedBoxes.add(label);
+            this.setState({ checkbox: label })
+            console.log(this.state.checkbox)
         }
     }
 
@@ -56,6 +58,7 @@ class Home extends Component {
             label={label}
             handleCheck={this.toggleBox}
             key={label}
+            onChange={this.handleInputChange}
             />
     )
 
@@ -71,19 +74,29 @@ class Home extends Component {
       };
 
     applyFilter = () => {
-        console.log(this.state.category)
+        console.log(this.state.checkbox)
         let filterArray = []
         if (this.state.category === "All") {
-            this.loadWebsites()
+            this.removeFilter()
         }
-        else {
+        else if (this.state.checkbox === "Highest Rating") {
+            filterArray = this.state.websites.sort((a,b) => (b.rating - a.rating))
+            console.log(filterArray)
+            this.setState({ websites: filterArray})
+        }
+        else if (this.state.checkbox === "") {
             filterArray = this.state.websites.filter(website => website.category === this.state.category)} 
-        console.log(filterArray)
-        this.setState({ websites: filterArray})
+            console.log(filterArray)
+            this.setState({ websites: filterArray})
     }
 
     removeFilter = () => {
-        this.loadWebsites()
+        if (this.state.category === "All") {
+            console.log("No filters applied")
+        }
+        else {
+            this.loadWebsites()
+        }
     }
 
     render() {
@@ -123,7 +136,7 @@ class Home extends Component {
                         </thead>
                         <tbody>
                             {this.state.websites.map(website => (
-                                <tr>
+                                <tr key={website._id}>
                                 <td>{website.title}</td>
                                 <td><Link to={"/websites/" + website._id}>click here</Link></td>
                                 <td>{website.rating}</td>
