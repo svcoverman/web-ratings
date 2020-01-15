@@ -2,50 +2,59 @@ import React, { Component } from "react";
 import { Input, FormBtn } from "../components/Form";
 import Container from "../components/Container/Index";
 import './pages.css';
-import GoogleLogin from 'react-google-login'
-// import Cookies from 'universal-cookie'
 
 class Login extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            password: ''
+           
+    };
+        
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handlePassword = this.handlePassword.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    };
+
+    handleChange(event) {
+        this.setState({
+            name: event.target.value,
+            
+            
+        });
+    };
+
+    handlePassword(event) {
+        this.setState({
+            password: event.target.value
+        })
+    }
+
+    handleSubmit(event){
+        alert(this.state.name)
+        alert(this.state.password)
+        event.preventDefault();
+        
+        
+    };
   
-    onLogin = response => {
-    console.log(response)
-    const userObject = {
-        username: response.w3.ofa,
-        email: response.profileObj.email
-      } 
-     // Cookies.set('user', userObject);
-      console.log(userObject)
-    }
-
-    onLoginFail = res => {
-        console.warn('we broke it', res);
-    }
-
-   
 
     render() {
 
         return (
             <Container>
-                <form id="loginForm">
+                <form id="loginForm" onSubmit ={this.handleSubmit}>
                     <h4>User Name</h4>
-                    <Input/>
+                    <Input type ='text' value ={this.state.name} onChange={this.handleChange}></Input>
                     <h4>Password</h4>
-                    <Input/>
+                    <Input type = 'text' value ={this.state.password} onChange ={this.handlePassword}></Input>
                     <FormBtn>Submit</FormBtn>
                 </form>
-                <div id="register">Don't have an account? <a id="account" href="/newUser">Click Here</a> to create one.</div>
-                <GoogleLogin
-                     clientId="540175169100-bdn8353ekr3bv72l71qkuaqsrgu8n562.apps.googleusercontent.com"
-                     buttonText="Login"
-                     onSuccess={this.onLogin}
-                     onFailure={this.onLoginFail}
-                     cookiePolicy={'single_host_origin'}       
-                />,
-                <div id = "user"></div>
-            </Container>
-
+                <div id="register">Don't have an account? <a id="account" href="/newUser">Click Here</a> to create one.</div>              
+            </Container>   
             
         );
     }
