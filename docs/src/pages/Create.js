@@ -32,7 +32,8 @@ class Create extends Component {
                 summary: this.state.summary,
                 rating: 0, 
                 date: new Date(Date.now()),
-                comments: []
+                comments: [],
+                visits: 0
             })
         .then(res => console.log(res.data))
         .catch(err => console.log(err));

@@ -147,10 +147,11 @@ class Home extends Component {
             }
         }
         if (hasCategory === true && hasCheck === true) {
-            console.log(filterArray)
             let sortedArray = []
             let categoryArray = this.state.websites.filter(website => website.category === filterArray[0])
-            if (filterArray[1] === "Highest Rating") {
+            console.log(filterArray)
+            console.log(categoryArray)
+            if (filterArray[1] === "Highest Rated") {
                 sortedArray = categoryArray.sort((a,b) => (b.rating - a.rating))
                 this.setState({ filteredSites: sortedArray})
             }
