@@ -17,15 +17,14 @@ class Home extends Component {
     state = {
         websites: [],
         filteredSites: [],
-        Checkbox: "",
-        category: ""
+        options: "",
+        category: "",
     };
 
-    componentDidMount() {
-        this.loadWebsites();
-    }
     
-    componentWillMount = () => {
+    
+    componentDidMount = () => {
+        this.loadWebsites();
         this.selectedBoxes = new Set();
     }
 
@@ -60,7 +59,6 @@ class Home extends Component {
         } else {
             this.selectedBoxes.add(label);
             this.setState({ checkbox: label })
-            console.log(this.state.checkbox)
         }
     }
     
@@ -83,6 +81,7 @@ class Home extends Component {
         let filterArray = []
         let hasCategory = false
         let hasCheck = false
+        
         if (this.state.category === "Search") {
             filterArray.push("Search")
             hasCategory = true
@@ -107,16 +106,16 @@ class Home extends Component {
             filterArray.push("Shopping")
             hasCategory = true
         }
-        if (this.state.checkbox === "Highest Rating") {
-            filterArray.push("Highest Rating")
+        if (this.state.options === "Highest Rated") {
+            filterArray.push("Highest Rated")
             hasCheck = true 
         }
-        if (this.state.checkbox === "Popular") {
+        if (this.state.options === "Popular") {
             filterArray.push("Popular")
             hasCheck = true
         }
-        if (this.state.checkbox === "Newest") {
-            filterArray.push("Newest")
+        if (this.state.options === "New") {
+            filterArray.push("New")
             hasCheck = true
         }
         if (hasCategory === true && hasCheck === false) {
@@ -126,7 +125,7 @@ class Home extends Component {
         }
         if (hasCategory === false && hasCheck === true) {
             let sortedArray = []
-            if (filterArray[0] === "Highest Rating") {
+            if (filterArray[0] === "Highest Rated") {
                 sortedArray = this.state.websites.sort((a,b) => (b.rating - a.rating))
                 this.setState({ filteredSites: sortedArray})
             }
@@ -134,8 +133,16 @@ class Home extends Component {
                 sortedArray = this.state.websites.sort((a,b) => (b.visits - a.visits))
                 this.setState({ filteredSites: sortedArray})
             }
-            else if (filterArray[0] === "Newest") {
-                sortedArray = this.state.websites.sort((a,b) => (b.date > a.date))
+            else if (filterArray[0] === "New") {
+                console.log("yes")
+                sortedArray = this.state.websites.sort((a,b) => 
+                {
+                    let dateA = new Date(a.date);
+                    let dateB = new Date(b.date);
+                    console.log(dateA)
+                    return dateB - dateA; 
+                    
+                })
                 this.setState({ filteredSites: sortedArray})
             }
         }
@@ -151,8 +158,13 @@ class Home extends Component {
                 sortedArray = categoryArray.sort((a,b) => (b.visits - a.visits))
                 this.setState({ filteredSites: sortedArray})
             }
-            else if (filterArray[1] === "Newest") {
-                sortedArray = categoryArray.sort((a,b) => (b.date > a.date))
+            else if (filterArray[1] === "New") {
+                sortedArray = categoryArray.sort((a, b) => {
+                    let dateA = new Date(a.date);
+                    let dateB = new Date(b.date);
+                    return dateB - dateA; 
+
+                })
                 this.setState({ filteredSites: sortedArray})
             }
             
@@ -163,18 +175,39 @@ class Home extends Component {
         window.location.reload();
     }
 
+    recordVisit = (website) => {
+        // let visitCount = website.visit++ 
+        console.log(website)
+        // API.updateWebsite({id: website._id} , {visits: visitCount})
+        // .then(res =>
+        //     console.log(res.data)
+        // )
+        // .catch(err => console.log(err));
+        
+    }
+
     render() {
         return (
             <Container>
                 <Filter>
-                    <form onSubmit={this.handleFormSubmit}>
+                    <label className="filter-item">Options:</label>
+                    <select id="options" name="options" className="filter-item"
+                    onChange={this.handleInputChange}>
+                        <option value="" disabled>Categories</option>
+                        <option defaultValue="" ></option>
+                        <option value="Highest Rated">Highest Rated</option>
+                        <option value="Popular">Popular</option>
+                        <option value="New">New</option>
+                        
+                    </select>
+                    {/* <form onSubmit={this.handleFormSubmit}>
                         {this.renderCheckboxes()}
-                    </form>
+                    </form> */}
                     <label className="filter-item">Category:</label>
                     <select id="category" name="category" className="filter-item"
                     onChange={this.handleInputChange}>
                         <option value="" disabled>Categories</option>
-                        <option defaultValue="All" >All</option>
+                        <option defaultValue="" ></option>
                         <option value="News" >News</option>
                         <option value="Sports">Sports</option>
                         <option value="Social">Social</option>
@@ -207,7 +240,15 @@ class Home extends Component {
                                 <td>{website.rating}</td>
                                 <td>{website.visits}</td>
                                 <td>{website.category}</td>
-                                <td><a href={website.URL} target="blank">{website.URL}</a></td>
+                                <td>
+                                    <a 
+                                        href={website.URL} 
+                                        target="blank" 
+                                        onChange={() => {this.recordVisit(website)}}
+                                    >
+                                        {website.URL}
+                                    </a>
+                                </td>
                                 </tr>
                             ))}
                         </tbody>
