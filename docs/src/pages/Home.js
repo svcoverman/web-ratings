@@ -5,6 +5,7 @@ import Container from "../components/Container/Index";
 import { Link } from "react-router-dom";
 import Checkbox from "../components/Checkbox"
 import API from "../utils/API";
+// import { response } from "express";
 
 // array of filter names//
 const items = [
@@ -119,7 +120,6 @@ class Home extends Component {
             hasCheck = true
         }
         if (hasCategory === true && hasCheck === false) {
-            console.log(filterArray)
             let categoryArray = this.state.websites.filter(website => website.category === filterArray[0])
             this.setState({ filteredSites: categoryArray})
         }
@@ -139,7 +139,6 @@ class Home extends Component {
                 {
                     let dateA = new Date(a.date);
                     let dateB = new Date(b.date);
-                    console.log(dateA)
                     return dateB - dateA; 
                     
                 })
@@ -147,10 +146,9 @@ class Home extends Component {
             }
         }
         if (hasCategory === true && hasCheck === true) {
-            console.log(filterArray)
             let sortedArray = []
             let categoryArray = this.state.websites.filter(website => website.category === filterArray[0])
-            if (filterArray[1] === "Highest Rating") {
+            if (filterArray[1] === "Highest Rated") {
                 sortedArray = categoryArray.sort((a,b) => (b.rating - a.rating))
                 this.setState({ filteredSites: sortedArray})
             }
@@ -176,14 +174,12 @@ class Home extends Component {
     }
 
     recordVisit = (website) => {
-        // let visitCount = website.visit++ 
-        console.log(website)
-        // API.updateWebsite({id: website._id} , {visits: visitCount})
-        // .then(res =>
-        //     console.log(res.data)
-        // )
-        // .catch(err => console.log(err));
-        
+        let visitCount = website.website.visits + 1 
+        API.updateWebsite(website.website._id, {visits: visitCount})
+        .then( res => console.log(res.data)
+        )
+        .catch(err => console.log(err));
+        window.location.reload();
     }
 
     render() {
@@ -244,7 +240,7 @@ class Home extends Component {
                                     <a 
                                         href={website.URL} 
                                         target="blank" 
-                                        onChange={() => {this.recordVisit(website)}}
+                                        onClick={() => {this.recordVisit({website})}}
                                     >
                                         {website.URL}
                                     </a>

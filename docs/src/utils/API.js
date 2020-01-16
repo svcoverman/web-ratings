@@ -18,8 +18,8 @@ export default {
     return axios.post("/api/websites/", websiteData);
   },
 
-  updateWebsite: function(id) {
-    return axios.put("/api/websites/" + id);
+  updateWebsite: function(id, websiteData) {
+    return axios.put("/api/websites/" + id, websiteData);
   }
 
 };
