@@ -16,6 +16,10 @@ export default {
   // Saves a website to the database
   saveWebsite: function(websiteData) {
     return axios.post("/api/websites/", websiteData);
+  },
+
+  updateWebsite: function(id) {
+    return axios.put("/api/websites/" + id);
   }
 
 };

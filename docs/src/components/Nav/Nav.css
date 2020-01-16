@@ -34,6 +34,7 @@
 .nav-home:hover {
     text-decoration: none;
     color:black;
+    background-color: #ffffcc;
 }
 
 .nav-item:hover {
