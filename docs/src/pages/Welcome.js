@@ -61,6 +61,17 @@ class Welcome extends Component {
                     </div>
                 </div>
             </div>
+
+            <div className="content">
+            <div className="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+            <a href="/homeview">
+                <img id="logo" src="https://png2.cleanpng.com/sh/ba118b0d77fd4e6695adfac1e8e32edd/L0KzQYq3U8E1N5ttf5H0aYP2gLBuTfRifJIyjtt8dXHvecvolPlwdl58geZxLXS2Pbv6TfpifpJ4eARycISwRbSBgck6aWlnfqpuMkexRYm9Usc0PGU2Tac7NUi6QYi9V8g1Pl91htk=/kisspng-data-visualization-with-d3-js-javascript-5c8a99a8bf8e27.5862734415525871767846.png" alt="d3">
+                </img>
+            </a>
+            </div>
+            </div>
+           
+
             
             </Container>
         );

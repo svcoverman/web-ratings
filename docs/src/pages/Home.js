@@ -5,6 +5,7 @@ import Container from "../components/Container/Index";
 import { Link } from "react-router-dom";
 import Checkbox from "../components/Checkbox"
 import API from "../utils/API";
+// import BarChart from "../components/d3/BarChart";
 // import { response } from "express";
 
 // array of filter names//
