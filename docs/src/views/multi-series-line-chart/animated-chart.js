@@ -8,9 +8,9 @@ import { min, max, extent } from 'd3-array';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { select } from 'd3-selection';
 import { easeLinear } from 'd3-ease';
-
 import { animateWithEase } from 'drrr';
 
+import "../../pages/pages.css";
 // Same as data.tsv
 import dataTsv from './data';
 

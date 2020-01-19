@@ -7,6 +7,7 @@ import { line as d3Line, curveBasis } from 'd3-shape';
 import { min, max, extent } from 'd3-array';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { select } from 'd3-selection';
+import "../../pages/pages.css";
 
 // Same as data.tsv
 import dataTsv from './data';

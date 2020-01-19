@@ -256,13 +256,15 @@ a {
     width: 200px;
     height: auto
 }
-
-/* .barchart {
-    z-index:-1;
-    position:relative;
-}
-
-svg {
+/* 
+ .barchart {
     z-index:-1;
     position:relative;
 } */
+
+svg {
+   background-color: #ffffcc;
+   border-radius: .5in;
+   border-color: black;
+} 
+

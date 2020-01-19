@@ -4,6 +4,7 @@ import { tsvParse } from 'd3-dsv';
 import { max } from 'd3-array';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { select } from 'd3-selection';
+import "../../pages/pages.css";
 
 // Same as data.tsv
 import dataTsv from './data';

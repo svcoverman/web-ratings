@@ -3,6 +3,7 @@ import React from 'react';
 import { arc as d3Arc} from 'd3-shape';
 import { csvParse } from 'd3-dsv';
 import * as d3 from 'd3';
+import "../../pages/pages.css";
 
 // Same as data.csv
 import dataCsv from './data';
@@ -109,6 +110,5 @@ export default () => {
       </g>
     </svg>
    
-    
   );
 };

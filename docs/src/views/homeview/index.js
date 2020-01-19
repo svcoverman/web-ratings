@@ -1,6 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Container from "../../components/Container/Index";
+import "../../pages/pages.css";
+
 export default () => (
+  <Container>
+ <div className="pure-g center">
+ <div className="splash-container l-box pure-u-1 pure-u-md-1-1 pure-u-lg-1-1">
   <div className="App-intro">
     <h3>Standard Examples:</h3>
     <ul>
@@ -27,4 +33,8 @@ export default () => (
       </li>
     </ul>
   </div>
+  </div>
+  </div>
+
+  </Container>
 );

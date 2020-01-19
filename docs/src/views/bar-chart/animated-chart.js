@@ -5,8 +5,8 @@ import { max } from 'd3-array';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { select } from 'd3-selection';
 import { easeCubicInOut } from 'd3-ease';
-
 import { animateWithEase } from 'drrr';
+import "../../pages/pages.css";
 
 import dataTsv from './data';
 
